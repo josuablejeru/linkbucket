@@ -1,0 +1,11 @@
+# Framework und Plugins
+flask
+python-dotenv
+flask-wtf
+flask-sqlalchemy
+flask-migrate
+gunicorn
+
+# Development und testing
+pylint
+pytest
