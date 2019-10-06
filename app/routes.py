@@ -5,8 +5,10 @@ from app.forms import LoginForm
 
 @app.route('/')
 def hello():
-    return 'hello'
-
+    user = {
+        'username': 'Josua'
+    }
+    return render_template('index.html', user=user)
 
 # @app.route('/')
 # @app.route('/index')
