@@ -27,8 +27,12 @@
                     <li><a href="/">Home</a></li>
                     <li><a href="#">Profile</a></li>
                     <li><a href="#">Buckets</a></li>
-                     <!-- TODO: Should change to logout if logged in -->
-                    <li><a href="/login">Login</a></li>
+                    {% if current_user.is_anonymous %}
+                    <li><a href="{{ url_for('login') }}">Login</a></li>
+                    {% else %}
+                    <a href="{{ url_for('logout') }}">Logout</a>
+                    {% endif %}
+
                 </ul>
             </div>
         </div>

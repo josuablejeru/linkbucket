@@ -13,6 +13,7 @@
 <div class="valign-wrapper row login-box">
     <div class="col card hoverable s10 pull-s1 m6 pull-m3 l4 pull-l4">
         <form action="" method="post" novalidate>
+            {{ form.csrf_token }}
             {{ form.hidden_tag() }}
                 <div class="content">
                     <span class="card-title">Enter credentials</span>
@@ -44,8 +45,7 @@
                     </div>
 
                 </div>
-            </form>
-        </div>
+        </form>
     </div>
 </div>
 
