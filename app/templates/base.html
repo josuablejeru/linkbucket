@@ -15,28 +15,29 @@
     <title>Linkbucket</title>
 </head>
 <body>
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper">
+                <div class="container">
+                <a href="#" class="brand-logo right">Linkbucket</a>
+                <a href="#" class="sidenav-trigger" data-target="mobile-links">
+                    <i class="material-icons">menu</i>
+                </a>
+                    <ul class="left hide-on-med-and-down">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="#">Profile</a></li>
+                        <li><a href="#">Buckets</a></li>
+                        {% if current_user.is_anonymous %}
+                        <li><a href="{{ url_for('login') }}">Login</a></li>
+                        {% else %}
+                        <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                        {% endif %}
 
-    <nav>
-        <div class="nav-wrapper">
-            <div class="container">
-            <a href="#" class="brand-logo right">Linkbucket</a>
-            <a href="#" class="sidenav-trigger" data-target="mobile-links">
-                <i class="material-icons">menu</i>
-            </a>
-                <ul class="left hide-on-med-and-down">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="#">Profile</a></li>
-                    <li><a href="#">Buckets</a></li>
-                    {% if current_user.is_anonymous %}
-                    <li><a href="{{ url_for('login') }}">Login</a></li>
-                    {% else %}
-                    <li><a href="{{ url_for('logout') }}">Logout</a></li>
-                    {% endif %}
-
-                </ul>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </div>
 
     <ul class="sidenav" id="mobile-links">
         <li><a href="{{ url_for('index') }}">Home</a></li>
