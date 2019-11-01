@@ -5,8 +5,8 @@ from .models import User
 
 class AccountController:
 
-    def __init__(self, username):
-        self.username = username
+    def __init__(self, user_id):
+        self.user_id = user_id
 
     def render(self):
         user = self.__return_user()
@@ -16,6 +16,6 @@ class AccountController:
         return render_template('auth/account.html', user=user, bucket_number=bucket_number, link_number=link_number)
 
     def __return_user(self):
-        user = User.query.filter_by(username=self.username).first_or_404()
+        user = User.query.filter_by(id=self.user_id).first_or_404()
         return user
 
