@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% for bucket in buckets %}
+
+    <li>{{ bucket.name }}</li>
+
+{% endfor %}
+
+{% endblock %}
