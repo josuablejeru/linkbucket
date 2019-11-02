@@ -7,6 +7,7 @@ from app.modules.mod_buckets import BucketController
 
 auth_controller = AuthController()
 
+
 @app.route('/')
 @app.route('/index')
 @login_required
@@ -30,7 +31,7 @@ def register():
     return auth_controller.register_user()
 
 
-@app.route('/user/<user_id>')
+@app.route('/account/<user_id>')
 @login_required
 def account(user_id):
     user_account = AccountController(user_id=user_id)
