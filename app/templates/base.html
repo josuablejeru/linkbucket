@@ -24,9 +24,9 @@
                     <i class="material-icons">menu</i>
                 </a>
                     <ul class="left hide-on-med-and-down">
-                        <li><a href="/">Home</a></li>
-                        <li><a href="{{ url_for('account', user_id=current_user.id) }}">Account</a></li>
-                        <li><a href="{{ url_for('buckets', user_id=current_user.id) }}">Buckets</a></li>
+                        <li><a href="{{ url_for('index') }}">Home</a></li>
+                        <li><a href="{{ url_for('buckets') }}">Buckets</a></li>
+                        <li><a href="{{ url_for('account') }}">Account</a></li>
                         {% if current_user.is_anonymous %}
                         <li><a href="{{ url_for('login') }}">Login</a></li>
                         {% else %}
@@ -41,8 +41,8 @@
 
     <ul class="sidenav" id="mobile-links">
         <li><a href="{{ url_for('index') }}">Home</a></li>
-            <li><a href="{{ url_for('account', user_id=current_user.id) }}">Account</a></li>
-            <li><a href="{{ url_for('buckets', user_id=current_user.id) }}">Buckets</a></li>
+            <li><a href="{{ url_for('buckets') }}">Buckets</a></li>
+            <li><a href="{{ url_for('account') }}">Account</a></li>
             {% if current_user.is_anonymous %}
             <li><a href="{{ url_for('login') }}">Login</a></li>
             {% else %}

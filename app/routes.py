@@ -1,5 +1,5 @@
 from flask import render_template, redirect, url_for
-from flask_login import logout_user, login_required
+from flask_login import logout_user, login_required, current_user
 
 from app import app
 from app.modules.mod_auth import AccountController, AuthController
@@ -21,6 +21,7 @@ def login():
 
 
 @app.route('/logout')
+@login_required
 def logout():
     logout_user()
     return redirect(url_for('index'))
@@ -31,15 +32,15 @@ def register():
     return auth_controller.register_user()
 
 
-@app.route('/account/<user_id>')
+@app.route('/account')
 @login_required
-def account(user_id):
-    user_account = AccountController(user_id=user_id)
+def account():
+    user_account = AccountController()
     return user_account.render()
 
 
-@app.route('/buckets/<user_id>')
+@app.route('/buckets')
 @login_required
-def buckets(user_id):
-    bucket_controller = BucketController(user_id)
+def buckets():
+    bucket_controller = BucketController()
     return bucket_controller.render()

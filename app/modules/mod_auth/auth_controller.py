@@ -14,7 +14,6 @@ class AuthController:
         self.registration_form = registration_form
         self.user_model = user_model
 
-
     def validate_submission(self):
 
         login_form = self.login_form()
