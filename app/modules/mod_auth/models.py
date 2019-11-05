@@ -2,7 +2,7 @@ from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 
 from app import db
-from app import login
+from app import login_manager
 
 
 class User(UserMixin, db.Model):
@@ -23,6 +23,6 @@ class User(UserMixin, db.Model):
         return f'<User {self.username}>'
 
 
-@login.user_loader
+@login_manager.user_loader
 def load_user(id):
     return User.query.get(int(id))
