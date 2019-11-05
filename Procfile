@@ -1,1 +1,1 @@
-web: gunicorn linkbucket:app
+web: flask db upgrade; gunicorn linkbucket:app
