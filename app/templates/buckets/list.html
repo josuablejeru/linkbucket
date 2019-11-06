@@ -25,10 +25,15 @@
       <ul>
         <li><a class="btn-floating red"><i class="material-icons">delete_forever</i></a></li>
         <li><a class="btn-floating blue"><i class="material-icons">share</i></a></li>
-        <li><a class="btn-floating green"><i class="material-icons">add</i></a></li>
+        <li><a class="btn-floating green waves-effect waves-light modal-trigger" data-target="bucketFrom"><i class="material-icons">add</i></a></li>
       </ul>
     </div>
 
+    <div id="bucketFrom" class="modal">
+        <div class="modal-content">
+            {% include "buckets/new_bucket.html"%}
+        </div>
+    </div>
 
 
 </div>

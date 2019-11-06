@@ -1,0 +1,13 @@
+
+<h1>New bucket Form!</h1>
+
+<form method="post" action="/bucket">
+    {{ bucket_form.hidden_tag() }}
+
+    {{ bucket_form.name.label }}
+    {{ bucket_form.name(size=20) }}
+
+    {{ bucket_form.create.label }}
+    {{ bucket_form.create() }}
+
+</form>
