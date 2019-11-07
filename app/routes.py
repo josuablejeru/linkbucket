@@ -48,4 +48,4 @@ def buckets():
         return bucket_controller.render()
 
     if request.method == 'POST':
-        return 'ok'
+        return bucket_controller.create_bucket()

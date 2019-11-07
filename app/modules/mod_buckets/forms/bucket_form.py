@@ -4,6 +4,6 @@ from wtforms.validators import DataRequired
 
 
 class BucketForm(FlaskForm):
-    name = StringField('name', validators=[DataRequired])
+    name = StringField('name', validators=[DataRequired()])
     info = StringField('info')
     create = SubmitField('Create Bucket')
