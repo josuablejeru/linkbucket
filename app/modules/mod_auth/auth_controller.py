@@ -36,7 +36,7 @@ class AuthController:
             db.session.add(user)
             db.session.commit()
             flash('Success!')
-            redirect(url_for('login'))
+            return redirect(url_for('login'))
         return render_template('auth/regristation.html', title='Register', form=registration_form)
 
     def __check_user_exist(self):
