@@ -1,7 +1,7 @@
 
 <h1>New bucket Form!</h1>
 
-<form method="post" action="/bucket">
+<form method="post" action="{{ url_for('buckets') }}">
     {{ bucket_form.hidden_tag() }}
 
     {{ bucket_form.name.label }}

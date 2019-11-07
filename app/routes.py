@@ -1,4 +1,4 @@
-from flask import render_template, redirect, url_for
+from flask import render_template, redirect, url_for, request
 from flask_login import logout_user, login_required, current_user
 
 from app import app
@@ -32,15 +32,20 @@ def register():
     return auth_controller.register_user()
 
 
-@app.route('/account')
+@app.route('/account', methods=['GET'])
 @login_required
 def account():
     user_account = AccountController()
     return user_account.render()
 
 
-@app.route('/buckets')
+@app.route('/buckets', methods=['GET', 'POST'])
 @login_required
 def buckets():
     bucket_controller = BucketController()
-    return bucket_controller.render()
+
+    if request.method == 'GET':
+        return bucket_controller.render()
+
+    if request.method == 'POST':
+        return 'ok'
