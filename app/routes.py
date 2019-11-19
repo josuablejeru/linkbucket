@@ -3,7 +3,7 @@ from flask_login import logout_user, login_required, current_user
 
 from app import app
 from app.modules.mod_auth import AccountController, AuthController
-from app.modules.mod_buckets import BucketController
+from app.modules.mod_buckets import BucketListController
 
 auth_controller = AuthController()
 
@@ -42,10 +42,14 @@ def account():
 @app.route('/buckets', methods=['GET', 'POST'])
 @login_required
 def buckets():
-    bucket_controller = BucketController()
+    bucketlist_controller = BucketListController()
 
     if request.method == 'GET':
-        return bucket_controller.render()
+        return bucketlist_controller.render()
 
     if request.method == 'POST':
-        return bucket_controller.create_bucket()
+        return bucketlist_controller.create_bucket()
+
+@app.route('/buckets/<int:bucket_id>', methods=['GET'])
+@login_required
+def bucket(id):

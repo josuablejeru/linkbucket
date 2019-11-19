@@ -6,7 +6,7 @@ from .models import Bucket
 from .forms import BucketForm
 
 
-class BucketController:
+class BucketListController:
 
     def __init__(self):
         self.form = BucketForm()
