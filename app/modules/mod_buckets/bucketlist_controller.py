@@ -10,7 +10,7 @@ class BucketController:
 
     def __init__(self):
         self.form = BucketForm()
-        self.model = Bucket
+        self.bucket_model = Bucket
 
     def render(self):
         buckets = self.__load_buckets()
@@ -18,14 +18,14 @@ class BucketController:
 
     def create_bucket(self):
         if self.form.validate_on_submit() is True:
-            self.__commit_bucket(self.form, self.model)
+            self.__commit_bucket(self.form, self.bucket_model)
             return redirect(url_for('buckets'))
         else:
             return redirect(url_for('buckets'))
 
     def __load_buckets(self):
         user_id = current_user.id
-        buckets = self.model.query.filter_by(user_id=user_id)
+        buckets = self.bucket_model.query.filter_by(user_id=user_id)
         return buckets
 
     def __commit_bucket(self, form, model):
