@@ -30,7 +30,7 @@ class BucketController:
 
     def __commit_bucket(self, form, model):
         # TODO: implement seter and geter for labels
-        bucket = model(user_id=current_user.id, name=form.name.data, info=form.info.data, label='')
+        bucket = model(user_id=current_user.id, name=form.name.data, info=form.info.data, label=form.bucket_label.data)
         db.session.add(bucket)
         db.session.commit()
         flash('Bucket Created')

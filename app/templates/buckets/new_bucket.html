@@ -1,16 +1,26 @@
-
-<h1>New bucket Form!</h1>
+<div class="title">Create a new Bucket</div>
 
 <form method="post" action="{{ url_for('buckets') }}">
+    <div class="row">
+    </div>
     {{ bucket_form.hidden_tag() }}
+
 
     {{ bucket_form.name.label }}
     {{ bucket_form.name(size=20) }}
 
+    <!-- TODO: Form und model muessen angepasst werden für setzen und auslesen der tags -->
+    <div class="chips">
+        {{ bucket_form.bucket_label(size=30) }}
+    </div>
+
+
     {{ bucket_form.info.label }}
     {{ bucket_form.info(size=20) }}
 
-    {{ bucket_form.create.label }}
-    {{ bucket_form.create() }}
+
+    <button class="btn waves-effect waves-light" type="submit" name="action">{{ bucket_form.create.label }}
+        <i class="material-icons right">send</i>
+    </button>
 
 </form>
