@@ -2,16 +2,19 @@
 
 {% block content %}
 
+<link rel="stylesheet" type="text/css" href="./static/style.css">
+
 <div class="container">
 
     <div class="row">
     {% for bucket in buckets %}
         <div class="col s6 m4 l6">
 
-            <div class="card hoverable small">
-                <span class="card-title activator grey-text text-darken-4">{{ bucket.name }}</span>
-
-            </div>
+            <a href="{{ url_for('bucket', bucket_id=bucket.id) }}" class="card-link">
+                <div class="card hoverable small">
+                    <span class="card-title activator grey-text text-darken-4">{{ bucket.name }}</span>
+                </div>
+            </a>
 
         </div>
     {% endfor %}
