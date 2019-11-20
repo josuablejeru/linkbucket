@@ -1,1 +1,2 @@
 from .bucketlist_controller import BucketListController
+from .bucket_controller import BucketController
