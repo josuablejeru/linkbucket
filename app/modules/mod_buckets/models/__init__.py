@@ -1,2 +1,2 @@
-from .bucket import Bucket
-from .link import Link
+from .bucket_model import Bucket
+from .link_model import Link

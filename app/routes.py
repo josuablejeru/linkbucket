@@ -5,8 +5,6 @@ from app import app
 from app.modules.mod_auth import AccountController, AuthController
 from app.modules.mod_buckets import BucketListController, BucketController
 
-auth_controller = AuthController()
-
 
 @app.route('/')
 @app.route('/index')
@@ -17,6 +15,7 @@ def index():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    auth_controller = AuthController()
     return auth_controller.validate_submission()
 
 
@@ -29,6 +28,7 @@ def logout():
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
+    auth_controller = AuthController()
     return auth_controller.register_user()
 
 

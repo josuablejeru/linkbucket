@@ -9,16 +9,16 @@ from .forms import BucketForm
 class BucketListController:
 
     def __init__(self):
-        self.form = BucketForm()
+        self.bucket_form = BucketForm()
         self.bucket_model = Bucket
 
     def render(self):
         buckets = self.__load_buckets()
-        return render_template('buckets/bucketlist.html', buckets=buckets, bucket_form=self.form)
+        return render_template('buckets/bucketlist.html', buckets=buckets, bucket_form=self.bucket_form)
 
     def create_bucket(self):
-        if self.form.validate_on_submit() is True:
-            self.__commit_bucket(self.form, self.bucket_model)
+        if self.bucket_form.validate_on_submit() is True:
+            self.__commit_bucket(self.bucket_form, self.bucket_model)
             return redirect(url_for('buckets'))
         else:
             return redirect(url_for('buckets'))
