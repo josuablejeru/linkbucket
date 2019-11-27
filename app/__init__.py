@@ -19,6 +19,10 @@ migrate = Migrate(app, db)
 login_manager = LoginManager(app=app)
 login_manager.login_view = 'login'  # redirect the user to the login form if not authenticated
 
-from app import routes
+
+from app.routes import config_routes
+config_routes(app)
+
 from app.modules.mod_auth.models import User
 from app.modules.mod_buckets.models import Bucket, Link
+

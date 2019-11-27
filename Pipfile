@@ -17,6 +17,7 @@ Flask-Migrate = "*"
 pymysql = "*"
 flask-login = "*"
 psycopg2-binary = "*"
+pytest-flask = "*"
 
 [requires]
 python_version = "3.7"
