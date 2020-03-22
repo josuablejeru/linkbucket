@@ -2,6 +2,12 @@
 # Created by https://www.gitignore.io/api/flask,python,pycharm
 # Edit at https://www.gitignore.io/?templates=flask,python,pycharm
 
+# Custom
+app/.env
+.env
+.idea/*
+
+
 ### Flask ###
 instance/*
 !instance/.gitignore
