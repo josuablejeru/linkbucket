@@ -1,5 +1,6 @@
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
+from sqlalchemy.sql import func
 
 from app import db
 from app import login_manager
@@ -12,6 +13,8 @@ class User(UserMixin, db.Model):
     password_hash = db.Column(db.String(128))
     buckets = db.relationship('Bucket', backref='owner', lazy='dynamic')
     links = db.relationship('Link', backref='creator', lazy='dynamic')
+    time_created = db.Column(db.DateTime(timezone=True), server_default=func.now())
+    time_updated = db.Column(db.DateTime(timezone=True), onupdate=func.now())
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
